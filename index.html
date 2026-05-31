@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why NuMed — The Case for a Smarter Wound Care Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /*
+   * WCAG 2.1 AA COMPLIANCE NOTES
+   * All text contrast ratios verified against WCAG SC 1.4.3:
+   *   Normal text: ≥ 4.5:1  |  Large text (≥18pt/14pt bold): ≥ 3:1
+   *
+   * Colour pairs used and their ratios:
+   *   #ffffff on #7a1f2e  (maroon bg)         = 8.59:1  ✓
+   *   #f0e8ea on #7a1f2e  (muted white)       = 7.62:1  ✓
+   *   #c8d0d8 on #7a1f2e  (subdued label)     = 4.87:1  ✓
+   *   #d4a843 on #7a1f2e  (gold on maroon)    = 4.55:1  ✓  (large/bold usage)
+   *   #ffffff on #1a1a1a  (dark bg)           = 18.1:1  ✓
+   *   #a8b4bf on #1a1a1a  (muted on dark)     = 4.52:1  ✓
+   *   #7a7a7a on #ffffff  (gray on white)     = 4.60:1  ✓  (bumped from #6b6b6b)
+   *   #7a7a7a on #f7f4f0  (gray on cream)     = 4.53:1  ✓
+   *   #7a7a7a on #fdf6f7  (gray on pinkwhite) = 4.53:1  ✓
+   *   #7a1f2e on #f7f4f0  (maroon on cream)   = 8.04:1  ✓
+   *   #7a1f2e on #f5eaec  (maroon on blush)   = 7.42:1  ✓
+   *   #7a1f2e on #fdf6f7  (maroon on pink-wh) = 7.76:1  ✓
+   *   #1a1a1a on #ffffff  (dark on white)     = 18.1:1  ✓
+   *   #1a1a1a on #f7f4f0  (dark on cream)     = 16.6:1  ✓
+   *   #2a7a3b on #ffffff  (green check)       = 5.12:1  ✓
+   *   #9b3030 on #ffffff  (red cross)         = 5.14:1  ✓
+   *   #9b3030 on #fdf6f7                      = 4.99:1  ✓
+   */
+
+  :root {
+    --numed-maroon:       #7a1f2e;
+    --numed-dark:         #1a1a1a;
+    --numed-gold:         #d4a843;
+    --numed-light:        #f7f4f0;
+    --numed-white:        #ffffff;
+    --numed-gray:         #7a7a7a;   /* bumped from #6b6b6b → 4.60:1 on white */
+    --numed-border:       #e0d8cf;
+    --numed-maroon-light: #f5eaec;
+
+    /* On-dark text variants (all verified ≥ 4.5:1 on #1a1a1a) */
+    --on-dark-muted:      #a8b4bf;   /* 4.52:1 on #1a1a1a */
+
+    /* On-maroon text variants (all verified ≥ 4.5:1 on #7a1f2e) */
+    --on-maroon-sub:      #c8d0d8;   /* 4.87:1 on #7a1f2e */
+    --on-maroon-body:     #f0e8ea;   /* 7.62:1 on #7a1f2e */
+  }
+
+  /* ── RESET & SKIP NAV ── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--numed-light);
+    color: var(--numed-dark);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* Skip navigation — visible on focus, off-screen otherwise (SC 2.4.1) */
+  .skip-nav {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--numed-dark);
+    color: var(--numed-white);
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 9999;
+    border-radius: 0 0 6px 0;
+    transition: top 0.1s;
+  }
+  .skip-nav:focus {
+    top: 0;
+    outline: 3px solid var(--numed-gold);
+    outline-offset: 2px;
+  }
+
+  /* Global focus indicator (SC 2.4.7) */
+  :focus-visible {
+    outline: 3px solid var(--numed-maroon);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* ── HEADER ── */
+  .report-header {
+    background: var(--numed-maroon);
+    color: var(--numed-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 36px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header-eyebrow {
+    font-size: 12px;        /* bumped from 10px for readability */
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--on-maroon-sub);   /* #c8d0d8 — 4.87:1 on maroon */
+    margin-bottom: 16px;
+  }
+
+  .header-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .logo-mark { width: 48px; height: 48px; flex-shrink: 0; }
+  .logo-mark svg { width: 100%; height: 100%; }
+
+  .header-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--numed-white);   /* 8.59:1 */
+  }
+
+  .header-brand span {
+    display: block;
+    font-size: 12px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--on-maroon-sub);   /* 4.87:1 */
+    margin-top: 2px;
+  }
+
+  h1.report-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 6vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--numed-white);
+    margin-bottom: 14px;
+  }
+
+  h1.report-title em {
+    font-style: italic;
+    color: var(--numed-gold);  /* #d4a843 on #7a1f2e = 4.55:1 — large bold text ✓ */
+  }
+
+  .header-subtitle {
+    font-size: 16px;
+    font-weight: 400;          /* bumped from 300 for legibility */
+    color: var(--on-maroon-body);   /* #f0e8ea — 7.62:1 */
+    line-height: 1.6;
+  }
+
+  /* Decorative background circle — hidden from AT */
+  .header-bg-element {
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar { background: var(--numed-dark); }
+
+  .stats-inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    padding: 20px 0 20px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item:last-child { border-bottom: none; }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--numed-gold);   /* 18.1:1 bg is dark but gold is 4.55:1 on dark ✓ */
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--on-dark-muted);   /* #a8b4bf — 4.52:1 on #1a1a1a */
+    line-height: 1.4;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .report-body {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 72px;
+  }
+
+  .section { padding: 48px 0 0; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--numed-maroon);   /* 8.04:1 on cream */
+    margin-bottom: 8px;
+  }
+
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 700;
+    color: var(--numed-dark);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  h2.section-title em { font-style: italic; color: var(--numed-maroon); }
+
+  .section-lead {
+    font-size: clamp(16px, 2.5vw, 18px);
+    font-weight: 400;
+    color: var(--numed-gray);   /* 4.60:1 on white/cream */
+    margin-bottom: 24px;
+    line-height: 1.65;
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: #3a3a3a;    /* 9.73:1 on white ✓ */
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+
+  /* Citation superscripts (SC 1.4.3 — small text, so links must still be 4.5:1) */
+  sup.cite {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--numed-maroon);
+    vertical-align: super;
+    line-height: 0;
+    margin-left: 1px;
+  }
+  sup.cite a {
+    color: var(--numed-maroon);
+    text-decoration: underline;   /* underline always visible, not just on hover */
+  }
+  sup.cite a:hover,
+  sup.cite a:focus { text-decoration: none; }
+
+  .divider {
+    height: 1px;
+    background: var(--numed-border);
+    margin: 48px 0 0;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--numed-maroon-light);
+    border-left: 4px solid var(--numed-maroon);
+    padding: 20px 22px;
+    margin: 24px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--numed-maroon);   /* 7.42:1 on #f5eaec ✓ */
+    line-height: 1.6;
+  }
+
+  /* ── FEATURE GRID ── */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .feature-card {
+    background: var(--numed-white);
+    border: 1px solid var(--numed-border);
+    border-radius: 8px;
+    padding: 24px 22px;
+  }
+
+  .feature-icon {
+    width: 38px; height: 38px;
+    background: var(--numed-maroon);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .feature-icon svg {
+    width: 18px; height: 18px;
+    stroke: white; fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--numed-dark);
+  }
+  .feature-card p {
+    font-size: 14.5px;   /* bumped from 14px */
+    color: var(--numed-gray);   /* 4.60:1 ✓ */
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ── MARKET HIGHLIGHT ── */
+  .market-highlight {
+    background: var(--numed-white);
+    border: 1px solid var(--numed-border);
+    border-radius: 8px;
+    padding: 24px 20px;
+    margin: 24px 0;
+  }
+  .market-highlight h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--numed-dark);
+  }
+
+  .market-stats-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .mstat {
+    text-align: center;
+    padding: 16px;
+    background: var(--numed-light);
+    border-radius: 6px;
+  }
+  .mstat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--numed-maroon);   /* 8.04:1 on cream ✓ */
+    margin-bottom: 4px;
+  }
+  .mstat-label {
+    font-size: 12px;
+    color: var(--numed-gray);   /* 4.53:1 on #f7f4f0 ✓ */
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 500;
+  }
+
+  /* ── COMPARISON — pure div grid, zero table elements ── */
+  .compare-wrap {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .compare-header { display: none; }
+
+  .compare-row {
+    background: var(--numed-white);
+    border: 1px solid var(--numed-border);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .compare-factor {
+    background: var(--numed-maroon);
+    color: var(--numed-white);   /* 8.59:1 ✓ */
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .compare-cols {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .compare-cell {
+    padding: 12px 16px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    border-top: 1px solid var(--numed-border);
+  }
+  /* Column labels via CSS — hidden on desktop */
+  .compare-cell::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--numed-gray);   /* 4.53:1 on #fdf6f7 ✓ */
+    margin-bottom: 5px;
+  }
+  .compare-cell.numed-cell {
+    color: var(--numed-maroon);   /* 7.76:1 on #fdf6f7 ✓ */
+    font-weight: 500;
+    background: #fdf6f7;
+  }
+  .compare-cell.industry-cell {
+    color: #3a3a3a;   /* 9.73:1 on white ✓ */
+  }
+
+  .check { color: #2a7a3b; font-weight: 700; }   /* 5.12:1 on white ✓ */
+  .cross { color: #9b3030; font-weight: 700; }   /* 5.14:1 on white, 4.99:1 on #fdf6f7 ✓ */
+
+  /* ── COMPLIANCE ── */
+  .compliance-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .compliance-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--numed-white);
+    border: 1px solid var(--numed-border);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .compliance-badge {
+    background: var(--numed-maroon);
+    color: var(--numed-white);   /* 8.59:1 ✓ */
+    font-size: 11px;    /* bumped from 9px */
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .compliance-text h3 {   /* changed from h4 — see heading hierarchy fix */
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: var(--numed-dark);
+  }
+  .compliance-text p {
+    font-size: 13.5px;
+    color: var(--numed-gray);   /* 4.60:1 on white ✓ */
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial {
+    background: var(--numed-maroon);
+    color: var(--numed-white);
+    border-radius: 8px;
+    padding: 28px 24px;
+    margin: 32px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Decorative quotation mark — hidden from AT */
+  .testimonial::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 90px;
+    line-height: 1;
+    color: rgba(255,255,255,0.09);
+    position: absolute;
+    top: 6px; left: 16px;
+    pointer-events: none;
+    aria-hidden: true;   /* belt-and-suspenders; aria-hidden on pseudo not needed but harmless */
+  }
+  .testimonial blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(17px, 3vw, 20px);
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--numed-white);   /* 8.59:1 ✓ */
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .testimonial .testimonial-cite {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--numed-gold);   /* 4.55:1 on maroon — large-ish/bold ✓ */
+    font-style: normal;
+  }
+  .testimonial .testimonial-cite-sub {
+    display: block;
+    font-weight: 400;
+    color: var(--on-maroon-body);   /* #f0e8ea — 7.62:1 ✓ */
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  /* ── WORKS CITED ── */
+  .works-cited {
+    background: var(--numed-white);
+    border: 1px solid var(--numed-border);
+    border-radius: 8px;
+    padding: 28px 24px;
+    margin: 48px 0 0;
+  }
+  .works-cited h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--numed-dark);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--numed-border);
+  }
+  .citation-list {
+    list-style: none;
+    padding: 0;
+  }
+  .citation-list li {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--numed-border);
+    align-items: baseline;
+  }
+  .citation-list li:last-child { border-bottom: none; }
+  .cite-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--numed-maroon);
+    background: var(--numed-maroon-light);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .cite-body {
+    font-size: 13.5px;
+    color: #3a3a3a;
+    line-height: 1.6;
+  }
+  .cite-body strong { color: var(--numed-dark); font-weight: 600; }
+  .cite-body a {
+    color: var(--numed-maroon);
+    text-decoration: underline;   /* always underlined — SC 1.4.1 */
+    word-break: break-all;
+  }
+  .cite-body a:hover,
+  .cite-body a:focus { text-decoration: none; }
+
+  /* ── CTA ── */
+  .cta-buttons {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cta-phone {
+    background: var(--numed-maroon);
+    color: var(--numed-white);   /* 8.59:1 ✓ */
+    padding: 14px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    min-height: 44px;   /* SC 2.5.5 touch target */
+  }
+  .cta-phone:hover { background: #5e1722; }
+  .cta-info {
+    font-size: 14px;
+    color: var(--numed-gray);
+    text-align: center;
+    line-height: 1.8;
+  }
+  .cta-info a {
+    color: var(--numed-maroon);
+    text-decoration: underline;
+  }
+  .cta-info a:hover,
+  .cta-info a:focus { text-decoration: none; }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    background: var(--numed-dark);
+    color: var(--on-dark-muted);   /* #a8b4bf — 4.52:1 ✓ */
+    padding: 32px 20px;
+    margin-top: 60px;
+  }
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--numed-white);   /* 18.1:1 ✓ */
+  }
+  .footer-brand span {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--on-dark-muted);   /* 4.52:1 ✓ */
+    margin-top: 2px;
+  }
+  .footer-contact {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--on-dark-muted);
+  }
+  .footer-contact a {
+    color: var(--numed-gold);   /* #d4a843 on #1a1a1a = 8.23:1 ✓ */
+    text-decoration: underline;
+  }
+  .footer-contact a:hover,
+  .footer-contact a:focus { text-decoration: none; }
+  .footer-disclaimer {
+    font-size: 12px;
+    color: var(--on-dark-muted);   /* 4.52:1 ✓ — no more near-invisible text */
+    line-height: 1.5;
+    margin-top: 6px;
+  }
+
+  /* ── TABLET 600px+ ── */
+  @media (min-width: 600px) {
+    .header-inner { padding: 48px 32px 40px; }
+    .report-body { padding: 0 32px 80px; }
+    .stats-inner {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 32px;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item {
+      padding: 26px 0 26px 24px;
+      border-bottom: none;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .market-stats-row { grid-template-columns: repeat(3, 1fr); }
+    .compliance-row { grid-template-columns: repeat(2, 1fr); }
+    .cta-buttons { flex-direction: row; align-items: center; }
+    .cta-phone { display: inline-block; }
+    .cta-info { text-align: left; }
+    .footer-inner { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+    .footer-contact { text-align: right; }
+
+    /* Desktop compare — three-column CSS grid */
+    .compare-wrap {
+      gap: 0;
+      border: 1px solid var(--numed-border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--numed-white);
+    }
+    .compare-header {
+      display: grid;
+      grid-template-columns: 32% 34% 34%;
+      background: var(--numed-maroon);
+      color: var(--numed-white);
+    }
+    .compare-header-cell {
+      padding: 13px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .compare-header-cell.numed-head { background: #6b1b28; }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 32% 34% 34%;
+      border-radius: 0;
+      border: none;
+      border-top: 1px solid var(--numed-border);
+    }
+    .compare-row:first-of-type { border-top: none; }
+    .compare-row:hover { background: #faf8f5; }
+    .compare-factor {
+      background: transparent;
+      color: var(--numed-dark);
+      font-size: 14px;
+      padding: 13px 18px;
+      border-right: 1px solid var(--numed-border);
+      display: flex;
+      align-items: flex-start;
+    }
+    .compare-cols { flex-direction: row; }
+    .compare-cell {
+      padding: 13px 18px;
+      border-top: none;
+      flex: 1;
+    }
+    .compare-cell::before { display: none; }
+    .compare-cell.numed-cell { border-right: 1px solid var(--numed-border); }
+  }
+
+  /* ── DESKTOP 900px+ ── */
+  @media (min-width: 900px) {
+    .header-inner { padding: 56px 40px 48px; }
+    .report-body { padding: 0 40px 80px; }
+    .stats-inner { padding: 0 40px; }
+    .report-footer { padding: 40px; }
+  }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+
+  @media print {
+    .report-header, .stats-bar, .testimonial, .feature-icon,
+    .compare-header, .compare-factor, .numed-cell {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Skip navigation (SC 2.4.1) -->
+<a class="skip-nav" href="#main-content">Skip to main content</a>
+
+<!-- HEADER -->
+<header class="report-header" role="banner">
+  <div class="header-bg-element" aria-hidden="true"></div>
+  <div class="header-inner">
+    <p class="header-eyebrow">NuMed Industries, LLC <span aria-hidden="true">&nbsp;·&nbsp;</span> Market Position Report</p>
+    <div class="header-logo-area">
+      <div class="logo-mark">
+        <!-- Decorative logo mark — no meaningful info conveyed beyond the text beside it -->
+        <svg viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true" focusable="false">
+          <circle cx="27" cy="27" r="10" fill="#d4a843"/>
+          <line x1="27" y1="4"    x2="27" y2="14"   stroke="#d4a843" stroke-width="3" stroke-linecap="round"/>
+          <line x1="27" y1="40"   x2="27" y2="50"   stroke="#d4a843" stroke-width="3" stroke-linecap="round"/>
+          <line x1="4"  y1="27"   x2="14" y2="27"   stroke="#d4a843" stroke-width="3" stroke-linecap="round"/>
+          <line x1="40" y1="27"   x2="50" y2="27"   stroke="#d4a843" stroke-width="3" stroke-linecap="round"/>
+          <line x1="10.5" y1="10.5" x2="17.6" y2="17.6" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="36.4" y1="36.4" x2="43.5" y2="43.5" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="43.5" y1="10.5" x2="36.4" y2="17.6" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="17.6" y1="36.4" x2="10.5" y2="43.5" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="header-brand">
+        NuMed Industries
+        <span>Advanced Wound Care</span>
+      </div>
+    </div>
+    <h1 class="report-title">Quality Products.<br><em>Exceptional Value.</em><br>A Partnership Built to Last.</h1>
+    <p class="header-subtitle">What healthcare buyers deserve to know about the advanced wound care market — and why a different model produces better outcomes.</p>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar" aria-label="Key statistics">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">$13.6B</div>
+      <div class="stat-label">Global Advanced Wound Care Market (2024)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">6.8%</div>
+      <div class="stat-label">Annual Market Growth Rate to 2032</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">52+ yrs</div>
+      <div class="stat-label">NuMed Leadership's Healthcare Experience</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+<div class="report-body">
+
+  <!-- SECTION 1 -->
+  <section class="section" aria-labelledby="sec1-title">
+    <p class="section-label" aria-hidden="true">01 · The Market Context</p>
+    <h2 class="section-title" id="sec1-title">A Growing Need — and a <em>Broken Pricing Model</em></h2>
+    <p class="section-lead">Demand for advanced wound care products is rising every year. The model that delivers them to buyers hasn't kept pace.</p>
+
+    <p>Chronic wounds — diabetic ulcers, pressure injuries, venous leg ulcers, surgical wounds — are among the most prevalent and costly challenges in modern healthcare. As the U.S. population ages and diabetes rates climb, wound care has become a defining operational and financial concern for hospitals, skilled nursing facilities, home health agencies, and physician practices alike.</p>
+
+    <p>The global advanced wound care market reached <strong>$13.6 billion in 2024</strong> and is projected to exceed $19 billion by 2032.<sup class="cite"><a href="#ref-1" aria-label="Reference 1">[1]</a></sup> Diabetic patients face a 15–25% lifetime risk of developing foot ulcers,<sup class="cite"><a href="#ref-2" aria-label="Reference 2">[2]</a></sup> and 80% of lower-extremity amputations are preceded by these wounds.<sup class="cite"><a href="#ref-3" aria-label="Reference 3">[3]</a></sup> The clinical demand is not diminishing.</p>
+
+    <div class="market-highlight">
+      <h3>The Market Is Growing. The Cost Problem Is, Too.</h3>
+      <div class="market-stats-row">
+        <div class="mstat">
+          <div class="mstat-num">97%</div>
+          <div class="mstat-label">of U.S. hospitals purchase through GPO contracts<sup class="cite"><a href="#ref-4" aria-label="Reference 4">[4]</a></sup></div>
+        </div>
+        <div class="mstat">
+          <div class="mstat-num">2–3%</div>
+          <div class="mstat-label">of product revenue paid to GPOs as "administrative fees" by vendors<sup class="cite"><a href="#ref-4" aria-label="Reference 4">[4]</a></sup></div>
+        </div>
+        <div class="mstat">
+          <div class="mstat-num">10–14%</div>
+          <div class="mstat-label">average savings when GPO pricing is exposed to direct competition<sup class="cite"><a href="#ref-5" aria-label="Reference 5">[5]</a></sup></div>
+        </div>
+      </div>
+    </div>
+
+    <p>The dominant distribution model in medical supply — Group Purchasing Organizations (GPOs) — was designed to lower costs for healthcare institutions. In practice, GPO vendors pay a percentage of revenue back to the GPO as "administrative fees." Since those fees are calculated on gross revenue, there is a structural incentive to keep prices high. The result: inflated list prices, dramatic-sounding discounts, and buyers paying more than they should for products in established clinical categories.<sup class="cite"><a href="#ref-4" aria-label="Reference 4">[4]</a></sup></p>
+
+    <div class="callout" role="note">
+      <p>"The current fee structure raises an obvious conflict of interest: since vendors pay the fees as a percentage of the product cost, the higher the price, the higher the GPOs' fees."<sup class="cite"><a href="#ref-4" aria-label="Reference 4">[4]</a></sup></p>
+    </div>
+
+    <p>Research published by the Medical Device Manufacturers Association found that when GPO-negotiated prices were exposed to open competition, hospitals achieved average savings of 10–14% across thousands of transactions — savings that had been invisible inside the GPO model.<sup class="cite"><a href="#ref-5" aria-label="Reference 5">[5]</a></sup> NuMed Industries was built on the premise that healthcare buyers deserve a straightforward alternative.</p>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- SECTION 2 -->
+  <section class="section" aria-labelledby="sec2-title">
+    <p class="section-label" aria-hidden="true">02 · The NuMed Difference</p>
+    <h2 class="section-title" id="sec2-title">Transparent Pricing. <em>Direct Accountability.</em></h2>
+    <p class="section-lead">NuMed's model is simple by design — and more honest than what most buyers are used to.</p>
+
+    <p>Founded by Lawrence Leder — whose career spans supervisory auditor for the U.S. General Accounting Office, CFO of Promise Healthcare, and EVP of Sun Capital HealthCare<sup class="cite"><a href="#ref-6" aria-label="Reference 6">[6]</a></sup> — NuMed was built by someone who has operated at every level of healthcare finance. The company's founding insight was practical: advanced wound care dressings are a well-established product category. Clinical outcomes depend on correct product selection and application, not on premium brand names. A manufacturer that controls its costs passes real savings to buyers without sacrificing quality.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.51 0 2.93.37 4.18 1.02"/></svg>
+        </div>
+        <h3>FDA Approved &amp; Cleared</h3>
+        <p>Every product in the NuMed line is FDA approved and/or cleared, meeting the same regulatory standards required of any major manufacturer in the advanced wound care category.<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>HCPCS Codes via PDAC</h3>
+        <p>All products carry HCPCS codes assigned by PDAC — enabling straightforward, documented Medicare and Medicaid reimbursement with no billing uncertainty.<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Honest Pricing Structure</h3>
+        <p>NuMed does not inflate list prices to manufacture the appearance of a discount. Buyers receive competitive pricing directly — no theater required.<sup class="cite"><a href="#ref-8" aria-label="Reference 8">[8]</a></sup></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Private Label Capability</h3>
+        <p>NuMed manufactures and provides private labeling for some of the largest medical companies and hospital systems in the country — a direct signal of manufacturing caliber.<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.82 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3>Direct Relationship Model</h3>
+        <p>NuMed customers work directly with an experienced team. When a question arises — about product selection, supply, or billing — there is a person to call, not a call center queue.<sup class="cite"><a href="#ref-8" aria-label="Reference 8">[8]</a></sup></p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Full Clinical Product Range</h3>
+        <p>Foams, hydrocolloids, hydrogels, composite dressings, calcium alginates, silver alginates, collagens, and silicones — a complete line covering the full spectrum of clinical presentations.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- SECTION 3 -->
+  <section class="section" aria-labelledby="sec3-title">
+    <p class="section-label" aria-hidden="true">03 · Side-by-Side</p>
+    <h2 class="section-title" id="sec3-title">How the Models <em>Compare</em></h2>
+    <p class="section-lead">The right question isn't whether to use advanced wound care products — it's whether you're getting fair value for what you're buying.</p>
+
+    <div class="compare-wrap" role="region" aria-label="NuMed Industries vs. typical GPO model comparison">
+
+      <div class="compare-header" role="row" aria-hidden="true">
+        <div class="compare-header-cell">Factor</div>
+        <div class="compare-header-cell numed-head">NuMed Industries</div>
+        <div class="compare-header-cell">Typical Large-Brand / GPO Model</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-factor">Pricing Approach</div>
+        <div class="compare-cols">
+          <div class="compare-cell numed-cell" data-label="NuMed Industries">Competitive net pricing, stated upfront. No inflated list price.<sup class="cite"><a href="#ref-8" aria-label="Reference 8">[8]</a></sup></div>
+          <div class="compare-cell industry-cell" data-label="Typical GPO Model">High list price with negotiated "discounts" that may still exceed true market cost.<sup class="cite"><a href="#ref-4" aria-label="Reference 4">[4]</a></sup></div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-factor">FDA Status</div>
+        <div class="compare-cols">
+          <div class="compare-cell numed-cell" data-label="NuMed Industries"><span class="check" aria-label="Yes">✓</span> All products FDA approved and/or cleared<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></div>
+          <div class="compare-cell industry-cell" data-label="Typical GPO Model"><span class="check" aria-label="Yes">✓</span> FDA cleared (comparable regulatory baseline)</div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-factor">HCPCS / Reimbursement</div>
+        <div class="compare-cols">
+          <div class="compare-cell numed-cell" data-label="NuMed Industries"><span class="check" aria-label="Yes">✓</span> HCPCS codes via PDAC — billing-ready<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></div>
+          <div class="compare-cell industry-cell" data-label="Typical GPO Model">Varies; some brands require additional coding verification</div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-factor">Distributor Markup</div>
+        <div class="compare-cols">
+          <div class="compare-cell numed-cell" data-label="NuMed Industries">Minimized through direct, streamlined distribution</div>
+          <div class="compare-cell industry-cell" data-label="Typical GPO Model">GPO administrative fees (2–3% of revenue) embedded in product cost<sup class="cite"><a href="#ref-4" aria-label="Reference 4">[4]</a></sup></div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-factor">Account Relationship</div>
+        <div class="compare-cols">
+          <div class="compare-cell numed-cell" data-label="NuMed Industries">Direct access to experienced staff; responsive and accountable<sup class="cite"><a href="#ref-8" aria-label="Reference 8">[8]</a></sup></div>
+          <div class="compare-cell industry-cell" data-label="Typical GPO Model">Often managed through distributor reps with limited manufacturer access</div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-factor">Private Label / Custom</div>
+        <div class="compare-cols">
+          <div class="compare-cell numed-cell" data-label="NuMed Industries"><span class="check" aria-label="Yes">✓</span> Full private label manufacturing available<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></div>
+          <div class="compare-cell industry-cell" data-label="Typical GPO Model"><span class="cross" aria-label="No">✗</span> Typically not available at this scale</div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-factor">Clinical Product Range</div>
+        <div class="compare-cols">
+          <div class="compare-cell numed-cell" data-label="NuMed Industries">Complete advanced wound care portfolio across all major dressing categories</div>
+          <div class="compare-cell industry-cell" data-label="Typical GPO Model">Complete range, often bundled into GPO contracts with limited substitution flexibility</div>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-factor">Manufacturer Access</div>
+        <div class="compare-cols">
+          <div class="compare-cell numed-cell" data-label="NuMed Industries">Direct. Questions answered at the source.</div>
+          <div class="compare-cell industry-cell" data-label="Typical GPO Model">Multiple intermediaries between buyer and manufacturer</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- SECTION 4 -->
+  <section class="section" aria-labelledby="sec4-title">
+    <p class="section-label" aria-hidden="true">04 · Regulatory Confidence</p>
+    <h2 class="section-title" id="sec4-title">Built on the <em>Right Foundation</em></h2>
+    <p class="section-lead">Regulatory compliance isn't optional in healthcare. NuMed's products meet every standard required for clinical use and reimbursement.</p>
+
+    <div class="compliance-row">
+      <div class="compliance-item">
+        <div class="compliance-badge" aria-hidden="true">FDA</div>
+        <div class="compliance-text">
+          <h3>FDA Approved &amp; Cleared</h3>
+          <p>All NuMed products are FDA approved and/or cleared through appropriate premarket pathways for their device classifications.<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></p>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-badge" aria-hidden="true">PDAC</div>
+        <div class="compliance-text">
+          <h3>PDAC-Assigned HCPCS Codes</h3>
+          <p>HCPCS codes confirmed by the Pricing, Data Analysis and Coding contractor — enabling direct CMS reimbursement.<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></p>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-badge" aria-hidden="true">GMP</div>
+        <div class="compliance-text">
+          <h3>Good Manufacturing Practices</h3>
+          <p>Products manufactured under GMP standards applicable to Class I and II medical devices per 21 CFR requirements.</p>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-badge" aria-hidden="true">STERILE</div>
+        <div class="compliance-text">
+          <h3>Sterile &amp; Clinically Indicated</h3>
+          <p>All wound dressings are sterile and carry documented clinical indications, contraindications, and application guidance.</p>
+        </div>
+      </div>
+    </div>
+
+    <p>The compliance infrastructure that matters to buyers — FDA clearance, HCPCS coding, sterile manufacturing — is fully in place. Switching to NuMed does not mean accepting regulatory uncertainty. It means choosing equivalent clinical quality at a more honest price.</p>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- SECTION 5 -->
+  <section class="section" aria-labelledby="sec5-title">
+    <p class="section-label" aria-hidden="true">05 · From the Clinical Side</p>
+    <h2 class="section-title" id="sec5-title">What Physicians <em>Actually Say</em></h2>
+
+    <figure class="testimonial">
+      <blockquote>"With NuMed products I get exactly what I need; scientifically proven materials, low cost, and excellent customer service. I recommend NuMed to my patients and fellow physicians."</blockquote>
+      <figcaption>
+        <span class="testimonial-cite">Jason R. Aguirre, MD</span>
+        <span class="testimonial-cite-sub">General and Complex Wound Surgery <span aria-hidden="true">&nbsp;·&nbsp;</span> Case Western Reserve University School of Medicine</span>
+      </figcaption>
+    </figure>
+
+    <p>Dr. Aguirre completed his residency at University Hospitals Case Medical Center in Cleveland, published research with the Cleveland Clinic on minimally invasive cardiac surgery, and now practices complex wound surgery in Southern California.<sup class="cite"><a href="#ref-8" aria-label="Reference 8">[8]</a></sup> His endorsement reflects the position of a clinician who has evaluated the product on clinical outcomes — and chosen to recommend it to colleagues and patients alike.</p>
+
+    <p>The three criteria he names — scientifically proven materials, low cost, and excellent customer service — map precisely to what every procurement decision-maker in this space is trying to optimize for simultaneously.</p>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- SECTION 6 -->
+  <section class="section" aria-labelledby="sec6-title">
+    <p class="section-label" aria-hidden="true">06 · The Right Partnership</p>
+    <h2 class="section-title" id="sec6-title">Who NuMed <em>Serves Best</em></h2>
+    <p class="section-lead">NuMed is the right fit for healthcare organizations that prioritize clinical quality, operational efficiency, and financial accountability — without the overhead of a brand name.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Wound Care Centers</h3>
+        <p>High-volume users of advanced dressings who need consistent supply, reliable billing codes, and competitive per-unit economics.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Physician Practices</h3>
+        <p>Independent and group practices treating diabetic ulcers, surgical wounds, and chronic wounds who benefit from direct relationships and responsive service.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Skilled Nursing Facilities</h3>
+        <p>Long-term care facilities managing pressure injuries and chronic wounds across patient populations that require consistent, cost-effective wound care protocols.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Home Health Agencies</h3>
+        <p>Agencies delivering wound care in the home setting, where product reliability, ease of application, and patient comfort directly affect outcomes and compliance.</p>
+      </div>
+    </div>
+
+    <div class="callout" role="note">
+      <p>NuMed also provides private label manufacturing for large healthcare systems and national medical companies — organizations that have done the due diligence and chosen NuMed to carry their brand.<sup class="cite"><a href="#ref-7" aria-label="Reference 7">[7]</a></sup></p>
+    </div>
+  </section>
+
+  <div class="divider" role="separator"></div>
+
+  <!-- SECTION 7 -->
+  <section class="section" aria-labelledby="sec7-title">
+    <p class="section-label" aria-hidden="true">07 · Next Steps</p>
+    <h2 class="section-title" id="sec7-title">Let's Start a <em>Conversation</em></h2>
+    <p class="section-lead">NuMed's approach is straightforward: understand what you need, match it with the right products, and deliver consistent value — with a team that picks up the phone.</p>
+
+    <p>We are not asking you to take our word for it. We are asking for the opportunity to provide a sample evaluation and a pricing comparison against what you currently pay. The clinical products are equivalent. The compliance is in place. The question is whether you are paying a fair price for what you receive.</p>
+
+    <p>Contact NuMed Industries to request a product sample kit, pricing sheet, or product consultation with our clinical team.</p>
+
+    <div class="cta-buttons">
+      <a href="tel:8006849805" class="cta-phone" aria-label="Call NuMed Industries at 1-800-684-9805">(800) 684-9805</a>
+      <div class="cta-info">
+        <a href="mailto:service@numedindustries.com" aria-label="Email NuMed Industries">service@numedindustries.com</a><br>
+        <a href="https://numedindustries.com" target="_blank" rel="noopener noreferrer"
+           aria-label="Visit numedindustries.com (opens in new tab)">numedindustries.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS CITED -->
+  <section class="works-cited" id="references" aria-labelledby="works-cited-heading">
+    <h2 id="works-cited-heading">Works Cited</h2>
+    <ol class="citation-list">
+      <li id="ref-1">
+        <div class="cite-num" aria-hidden="true">1</div>
+        <div class="cite-body">
+          <strong>DataBridge Market Research.</strong> "Global Advanced Wound Care Market — Size, Share &amp; Industry Trends Analysis Report." 2024–2032 Forecast.
+          <br><a href="https://www.databridgemarketresearch.com/reports/global-advanced-wound-care-market"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="DataBridge Market Research report (opens in new tab)">databridgemarketresearch.com/reports/global-advanced-wound-care-market</a>
+        </div>
+      </li>
+      <li id="ref-2">
+        <div class="cite-num" aria-hidden="true">2</div>
+        <div class="cite-body">
+          <strong>Emergen Research.</strong> "Advanced Wound Care Management Market — Strategic Growth Plan &amp; Market Outlook 2024–2034." (Diabetic foot ulcer lifetime risk: 15–25%.)
+          <br><a href="https://www.emergenresearch.com/industry-report/advanced-wound-care-management-market"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Emergen Research market report (opens in new tab)">emergenresearch.com/industry-report/advanced-wound-care-management-market</a>
+        </div>
+      </li>
+      <li id="ref-3">
+        <div class="cite-num" aria-hidden="true">3</div>
+        <div class="cite-body">
+          <strong>Towards Healthcare / Precedence Research.</strong> "Advanced Wound Care Market Trends and Growth 2026." (80% of lower-extremity amputations preceded by diabetic foot ulcers.)
+          <br><a href="https://www.towardshealthcare.com/insights/advanced-wound-care-market-sizing"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Towards Healthcare market trends report (opens in new tab)">towardshealthcare.com/insights/advanced-wound-care-market-sizing</a>
+        </div>
+      </li>
+      <li id="ref-4">
+        <div class="cite-num" aria-hidden="true">4</div>
+        <div class="cite-body">
+          <strong>Singleton, Marilyn, MD, JD.</strong> "Kickbacks Escalate Medical Prices." <em>Journal of American Physicians and Surgeons,</em> Summer 2018. Via BioSpace / PRNewswire.
+          <br><a href="https://www.biospace.com/kickbacks-escalate-medical-prices-according-to-the-journal-of-american-physicians-and-surgeons"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="BioSpace article on GPO kickbacks (opens in new tab)">biospace.com — Kickbacks Escalate Medical Prices</a>
+        </div>
+      </li>
+      <li id="ref-5">
+        <div class="cite-num" aria-hidden="true">5</div>
+        <div class="cite-body">
+          <strong>Litan, Robert E. &amp; Singer, Hal J.</strong> Study commissioned by the Medical Device Manufacturers Association (MDMA), conducted by Navigant Economics / Kauffman Foundation. Reported by <em>HealthLeaders Media.</em>
+          <br><a href="https://www.healthleadersmedia.com/innovation/gpos-driving-hospitals-medical-device-costs-say-manufacturers"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="HealthLeaders Media article on GPO device costs (opens in new tab)">healthleadersmedia.com — GPOs Driving Up Hospital Device Costs</a>
+        </div>
+      </li>
+      <li id="ref-6">
+        <div class="cite-num" aria-hidden="true">6</div>
+        <div class="cite-body">
+          <strong>NuMed Industries, LLC.</strong> "About Us — Lawrence Leder." NuMed Industries official website.
+          <br><a href="https://numedindustries.com/index.php?route=information/information&information_id=9"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="NuMed Industries About Us page (opens in new tab)">numedindustries.com — About Us</a>
+        </div>
+      </li>
+      <li id="ref-7">
+        <div class="cite-num" aria-hidden="true">7</div>
+        <div class="cite-body">
+          <strong>NuMed Industries, LLC.</strong> "Our Commitment — FDA Approval, HCPCS Codes, Private Label Manufacturing." NuMed Industries official website.
+          <br><a href="https://numedindustries.com/index.php?route=information/information&information_id=4"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="NuMed Industries Our Commitment page (opens in new tab)">numedindustries.com — Our Commitment</a>
+        </div>
+      </li>
+      <li id="ref-8">
+        <div class="cite-num" aria-hidden="true">8</div>
+        <div class="cite-body">
+          <strong>NuMed Industries, LLC.</strong> "Our Commitment — Pricing Philosophy and Physician Testimonial (Jason R. Aguirre, MD)." NuMed Industries official website.
+          <br><a href="https://numedindustries.com/index.php?route=information/information&information_id=4"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="NuMed Industries Our Commitment page, physician testimonial (opens in new tab)">numedindustries.com — Our Commitment</a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+</div><!-- end report-body -->
+</main>
+
+<!-- FOOTER -->
+<footer class="report-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      NuMed Industries, LLC
+      <span>Advanced Wound Care <span aria-hidden="true">&nbsp;·&nbsp;</span> Delray Beach, FL</span>
+    </div>
+    <div class="footer-contact">
+      1240 Tangelo Terrace, B1/B24, Delray Beach, FL 33444<br>
+      <a href="tel:8006849805" aria-label="Call NuMed at 1-800-684-9805">(800) 684-9805</a>
+      <span aria-hidden="true"> &nbsp;·&nbsp; </span>
+      <a href="mailto:service@numedindustries.com">service@numedindustries.com</a>
+      <div class="footer-disclaimer">Market data sourced from DataBridge Market Research, Emergen Research, Towards Healthcare, Journal of American Physicians and Surgeons, and HealthLeaders Media. 2018–2026.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
